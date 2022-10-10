@@ -210,6 +210,9 @@ Still in the root of your workspace, ros2_ws, build your new package:
 ```
 colcon build --packages-select py_pubsub
 ```
+![image](https://user-images.githubusercontent.com/92859942/194831334-30912a35-4222-4503-95da-64f6a0b27871.png)
+
+
 Navigate to ros2 ws in a new terminal, then source the setup files and run the talker mode 
 
 ```
@@ -228,6 +231,8 @@ we can see the terminal sending the following message
 [INFO] [minimal_publisher]: Publishing: "Hello World: 3"
 [INFO] [minimal_publisher]: Publishing: "Hello World: 4"
 ```
+![image](https://user-images.githubusercontent.com/92859942/194831442-81b91ccf-496c-4675-8bfb-5b3c08752c45.png)
+
 
 in short time, the terminal starts the informational messages as below and listener begins writing message to the console starting at the publisher's current message count as follows:
 
@@ -257,6 +262,8 @@ ros2 pkg create --build-type ament_python py_srvcli --dependencies rclpy example
 ```
 we will see the conformation 
 
+![image](https://user-images.githubusercontent.com/92859942/194831723-14c1d311-ba4b-42ae-8a20-9668b390675c.png)
+
 ## 1.1 update(package.xml) 
 
 we should always remember to include the description, license information, and the name and email of the maintainer in package.xml. but we dont need to manually add dependencies to package.xml.
@@ -266,6 +273,9 @@ we should always remember to include the description, license information, and t
 <maintainer email="you@email.com">Your Name</maintainer>
 <license>Apache License 2.0</license>
 ```
+![image](https://user-images.githubusercontent.com/92859942/194832328-009297dc-0f7f-432f-a1f5-fd0af93e63db.png)
+
+
 ## 1.2 Update (setup.py)
 
 
@@ -277,6 +287,8 @@ maintainer_email='you@email.com',
 description='Python client server tutorial',
 license='Apache License 2.0',
 ```
+![image](https://user-images.githubusercontent.com/92859942/194832769-09ef8dcf-d327-4dcd-81a9-7538533b961b.png)
+
 # 2 Write the service node
 
 we need to make new file called function.py, and run the following code. 
@@ -324,7 +336,11 @@ insert the code between the "console scripts" brackets
 ```
 'service = py_srvcli.service_member_function:main',
 ```
+![image](https://user-images.githubusercontent.com/92859942/194835145-5bbfd63b-8a31-4a22-a966-e19c06c8241b.png)
+
 ## 3 Write the client node
+
+![image](https://user-images.githubusercontent.com/92859942/194834297-f7060b85-519d-4226-8945-16f92a5b1ad1.png)
 
 again we need to make new file called client member  function.py  and use the code mentioned below .
 
@@ -384,6 +400,9 @@ entry_points={
     ],
 },
 ```
+![image](https://user-images.githubusercontent.com/92859942/194835869-1e8769e6-78d4-4991-97aa-c202e0f99867.png)
+
+
 ## 4 Build and Run
 we need to check any dependencies are missing or not 
 
@@ -407,12 +426,15 @@ in the new terminal source the setup files and run the service node right after
 ros2 run py_srvcli service
 ```
 
+![image](https://user-images.githubusercontent.com/92859942/194839726-e1ab4c3d-89c7-44d5-8dc7-66072ae7343f.png)
+
 Until a request is made by the client, the node will hold off.Open a new terminal and re-source the setup files from ros2 ws.Two integers, separated by a space, and the client node.
 
 
 ```
 ros2 run py_srvcli client 2 3
 ```
+![image](https://user-images.githubusercontent.com/92859942/194839816-d0790efd-8156-4660-ab6e-87da06bd0928.png)
 
 the customer will receive the response if we choose 2 or 3 option 
 
@@ -449,6 +471,7 @@ mkdir msg
 
 mkdir srv
 ```
+![image](https://user-images.githubusercontent.com/92859942/194840895-69308228-2cd5-4356-a9ce-7685bb1ae08f.png)
 
 ## 2 Create custom definitions
 
@@ -485,6 +508,8 @@ int64 sum
 ```
 This custom service accepts the three integers a, b, and c and provides the answer's integer sum.
 
+![image](https://user-images.githubusercontent.com/92859942/194843782-cf0f9aa2-ba12-4161-99b6-6b0a983cf65d.png)
+
 ## 3 CMakeLists.txt
 
 The following lines in CMakeLists.txt will translate the interfaces you created into code that can be used in C++ and Python:
@@ -500,6 +525,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   DEPENDENCIES geometry_msgs # Add packages that above messages depend on, in this case geometry_msgs for Sphere.msg
 )
 ```
+![image](https://user-images.githubusercontent.com/92859942/194844391-17978213-b921-437b-9307-7e3ded38d936.png)
+
 ## 4 package.xml
 
 ```
@@ -512,6 +539,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
 <member_of_group>rosidl_interface_packages</member_of_group>
 ```
 
+
 here in package.xml, added a above command .
 
 ## 5 Build the tutorial_interfaces package
@@ -523,6 +551,8 @@ and other ROS2 application will be able to locate the interface
 ```
 colcon build --packages-select tutorial_interfaces
 ```
+
+![image](https://user-images.githubusercontent.com/92859942/194845223-490653a2-c8f6-4b92-8d80-d4b6b9c84f20.png)
 
 ## 6 Confirm msg and srv creation
 
@@ -563,6 +593,7 @@ int64 c
 ---
 int64 sum
 ```
+![image](https://user-images.githubusercontent.com/92859942/194845600-f4f03c68-4b68-4112-a8bd-8ea2f00477f1.png)
 
 
 ## 7 Test the new interfaces
@@ -675,6 +706,7 @@ install(TARGETS
 
 ament_package()
 ```
+![image](https://user-images.githubusercontent.com/92859942/194846662-082ca9de-f5dd-481d-b6c7-3d09aa018aee.png)
 
 package.xml:
 after adding the below mentioned line we can create the package after making adjustment and save the work.
@@ -696,12 +728,16 @@ colcon build --merge-install --packages-select py_pubsub
 ```
 ros2 run py_pubsub talker
 ```
+![image](https://user-images.githubusercontent.com/92859942/194846960-86ce7059-12e0-4168-81cd-f773d82e3707.png)
+
 ```
 ros2 run py_pubsub listener
 
 ```
 
 The talker should only be transmitting integer values, as opposed to the text it previously broadcast as Num.msg only transmits an integer:
+
+![image](https://user-images.githubusercontent.com/92859942/194846859-adb6cb76-ad08-4ffb-8a55-43d1f0dbc0f3.png)
 
 ```
 [INFO] [minimal_publisher]: Publishing: '0'
@@ -837,6 +873,7 @@ After making the aforementioned alterations and saving your work, create the pac
 ```
 colcon build --packages-select py_srvcli
 ```
+![image](https://user-images.githubusercontent.com/92859942/194849463-af6ff6fc-4e55-4b22-a9c1-a535f25f381f.png)
 
 on windows: 
 
@@ -849,10 +886,12 @@ now we able to luvch two terminal and excute the work
 ```
 ros2 run py_srvcli service
 ```
+![image](https://user-images.githubusercontent.com/92859942/194849406-373e8c42-7434-42b1-a090-e0cdbcd62fac.png)
 
 ```
 ros2 run py_srvcli client 2 3 1
 ```
+![image](https://user-images.githubusercontent.com/92859942/194849177-572c320e-ff9e-4ea8-96e2-85592506777c.png)
 
 
 
