@@ -16,6 +16,8 @@ ros2 pkg create --build-type ament_python py_pubsub
  ```
 wgethttps://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_publisher/examples_rclpy_minimal_publisher/publisher_member_function.py
 ```
+![image](https://user-images.githubusercontent.com/92859942/194820798-ebd90a9c-5f13-46cb-b3a9-35fa0644946b.png)
+
 
  Open the file in your preferred text editor. The __init.py file will now be followed by a new one called publisher member function.py.
  
@@ -79,6 +81,7 @@ we need to add the following dependencies after the import declarations for your
 <exec_depend>rclpy</exec_depend>
 <exec_depend>std_msgs</exec_depend>
 ```
+![image](https://user-images.githubusercontent.com/92859942/194821468-308e1455-b9fd-42e2-9f6c-72132ecc902e.png)
 
 To run the package's code, rclpy and standard messages are required.
 make sure to save the file 
@@ -102,6 +105,7 @@ entry_points={
         ],
 },
 ```
+![image](https://user-images.githubusercontent.com/92859942/194822682-d2169521-7ba9-49d9-9853-cade3406f1b8.png)
 
 we need to save here as well 
 
@@ -126,6 +130,7 @@ we should create node using following command
 ```
 wgethttps://raw.githubusercontent.com/ros2/examples/foxy/rclpy/topics/minimal_subscriber/examples_rclpy_minimal_subscriber/subscriber_member_function.py
 ```
+![image](https://user-images.githubusercontent.com/92859942/194822885-ca202986-9f67-4f33-addf-5132a3d63121.png)
 
 below mentioned lines should be in directory 
 
@@ -188,6 +193,7 @@ entry_points={
         ],
 },
 ```
+![image](https://user-images.githubusercontent.com/92859942/194823251-a29af71b-984f-4f13-be9c-207eb35d4dba.png)
 
 after saving the system should function
 
